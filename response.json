@@ -1,0 +1,31 @@
+{
+    "response": {
+      "body": {
+        "patients": {
+          "patient": [
+            {
+              "patientID": "ALM22346789",
+              "submittedStatus": "In Progress",
+              "patientType": "Inpatient",
+              "submissionDate": "2020-10-15"
+            },
+            {
+              "patientID": "ALM12346789",
+              "submittedStatus": "Done",
+              "patientType": "Patient",
+              "submissionDate": "2020-10-07"
+            },
+            {
+              "patientID": "ALM22146789",
+              "submittedStatus": "In Progress",
+              "patientType": "Inpatient",
+              "submissionDate": "2020-10-07"
+            }
+          ]
+        }
+      },
+      "status": {
+        "statusCode": "200"
+      }
+    }
+  }
