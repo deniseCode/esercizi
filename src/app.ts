@@ -1,11 +1,3 @@
-let myMessage: string = 'Hello, hello Denise!';
-// create a new heading 1 element
-let heading = document.createElement('h1');
-heading.textContent = myMessage;
-// add the heading the document
-document.body.appendChild(heading);
-
-
 interface Patient {
     "patientID": string,
     "submittedStatus": string,
@@ -74,7 +66,9 @@ function getUserInput(): void {
         console.log(nospecialCar);
 
         //one-way-binding
-        pushUserInput(userInput);
+        let userInputDiv = document.getElementById("user-input")as HTMLInputElement;
+        let bind = new Binding(userInputDiv, Callbacks);
+        console.log(bind);
 
     } else {
         console.log("No text found");
@@ -83,16 +77,17 @@ function getUserInput(): void {
 }
 
 function wordsCapitalize(e : string) {
-    let inputToArray = e.split(' ');
+    let inputToArray = e.trim().split(' ');
     for(var i = 0 ; i < inputToArray.length ; i++){
-        inputToArray[i] = inputToArray[i][0].toUpperCase() + inputToArray[i].substr(1);
+        inputToArray[i] = inputToArray[i][0]?.toUpperCase() + inputToArray[i]?.substr(1);
     }   
     let arrayToString= inputToArray.toString().replace(/\,/g, "");
     return arrayToString;
 }
 
+//Test 5
 function pushUserInput(e:string) {
-    let container: HTMLElement = document.getElementsByClassName("display-text")[0];
+    const container: HTMLElement = document.getElementsByClassName("display-text")[0];
     let strongTag : HTMLElement = document.createElement('strong');
     strongTag.textContent = `${e}`;
     container.appendChild(strongTag);

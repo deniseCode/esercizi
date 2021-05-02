@@ -1,0 +1,31 @@
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.row {
+    margin-top: 50px;
+    margin-bottom: 100px;
+
+    .input-group {
+        width: 30%;
+        vertical-align: middle;
+        margin: 0 auto;
+    }
+}
+
+#meteo {
+    background-image: url("/src/images/clouds.jpg");
+    background-size: cover;
+    opacity: 8;
+    padding: 50px;
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 30px;
+    text-align: center;
+
+    .city {
+        text-align: center;
+        margin-top: 50px;
+    }
+}
+
