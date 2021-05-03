@@ -1,7 +1,7 @@
 export class Binding {
 
     constructor (
-        public inputElement: HTMLInputElement,
+        private inputElement: HTMLInputElement,
         private callback: (param: string) => void = () => { }
     ) {
         [ 'keyup', 'paste', 'change' ].forEach(

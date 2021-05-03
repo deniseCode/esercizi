@@ -1,3 +1,5 @@
+import {Binding} from "./utils/binding";
+
 interface Patient {
     "patientID": string,
     "submittedStatus": string,
@@ -67,7 +69,7 @@ function getUserInput(): void {
 
         //one-way-binding
         let userInputDiv = document.getElementById("user-input")as HTMLInputElement;
-        let bind = new Binding(userInputDiv, Callbacks);
+        let bind = new Binding();
         console.log(bind);
 
     } else {
@@ -91,5 +93,86 @@ function pushUserInput(e:string) {
     let strongTag : HTMLElement = document.createElement('strong');
     strongTag.textContent = `${e}`;
     container.appendChild(strongTag);
+}
+
+
+declare module weatherResponse {
+
+    export interface Coord {
+        lon: number;
+        lat: number;
+    }
+
+    export interface Weather {
+        id: number;
+        main: string;
+        description: string;
+        icon: string;
+    }
+
+    export interface Main {
+        temp: number;
+        feels_like: number;
+        temp_min: number;
+        temp_max: number;
+        pressure: number;
+        humidity: number;
+    }
+
+    export interface Wind {
+        speed: number;
+        deg: number;
+    }
+
+    export interface Clouds {
+        all: number;
+    }
+
+    export interface Sys {
+        type: number;
+        id: number;
+        country: string;
+        sunrise: number;
+        sunset: number;
+    }
+
+    export interface RootObject {
+        coord: Coord;
+        weather: Weather[];
+        base: string;
+        main: Main;
+        visibility: number;
+        wind: Wind;
+        clouds: Clouds;
+        dt: number;
+        sys: Sys;
+        timezone: number;
+        id: number;
+        name: string;
+        cod: number;
+    }
+
+}
+
+
+function getMeteo(e:string):void {
+    let city : string = (document.getElementById("location")as HTMLInputElement).value;
+    let queryUrl: any = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=a61e4cf1d203d6e7a118af89108ac797";
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log(this.response);
+          let val = JSON.parse(this.response);
+          
+          document.getElementById('city').append(`${val.name}`);
+          document.getElementById('weather').append(`${val.weather[0].main}`);
+          document.getElementById('lat').append(`${val.coord.lat}`);
+          document.getElementById('lon').append(`${val.coord.lon}`);
+          document.getElementById('wind').append(`${val.wind.speed}`);
+          document.getElementById('feels-like').append(`${val.main.feels_like}`);
+        }
+      };
+      xhttp.open("GET", queryUrl, true);
+      xhttp.send();
 }
 
