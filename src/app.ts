@@ -176,3 +176,34 @@ function getMeteo(e:string):void {
       xhttp.send();
 }
 
+function getBrowserMeteo(position: string[]):void {
+    debugger;
+    let lat: number = position.coords.latitude;
+    let lon: number = position.coords.longitude;
+    let queryUrl= "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=a61e4cf1d203d6e7a118af89108ac797";
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log(this.response);
+          let val = JSON.parse(this.response);
+          document.getElementById('city').append(`${val.name}`);
+          document.getElementById('weather').append(`${val.weather[0].main}`);
+          document.getElementById('lat').append(`${val.coord.lat}`);
+          document.getElementById('lon').append(`${val.coord.lon}`);
+          document.getElementById('wind').append(`${val.wind.speed}`);
+          document.getElementById('feels-like').append(`${val.main.feels_like}`);
+        }
+      };
+      xhttp.open("GET", queryUrl, true);
+      xhttp.send();
+}
+
+function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(getBrowserMeteo)
+    }
+  }
+
+  
+  
+  

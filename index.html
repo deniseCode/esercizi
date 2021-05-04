@@ -22,12 +22,13 @@
     
 
         <div id="meteo">
+            <button class="btn btn-primary" onclick="getLocation()">Current location</button>
             <div class="input-group">
                 <input type="text" id="location" class="form-control form-control-sm" placeholder="Search" aria-describedby="button-addon2">
                 <button class="search btn btn-dark" type="submit" id="button-addon2"  onclick="getMeteo()">Search</button>
             </div>
             <div class="container" id="meteo-response">
-                <h3 id="city"></h3>
+                <h1 id="city"></h1>
                 <div class="row align-items-center">
                     <div class="col weather">
                         <div class="text-center">
@@ -36,16 +37,16 @@
                         <p id="weather"></p>
                     </div>
                     <div class="col coord">
-                        <p>Coord</p>
+                        <p class="title">Coord</p>
                         <p id="lat"></p>
                         <p id="lon"></p>
                     </div>
                     <div class="col wind">
-                        <p>Wind</p>
+                        <p class="title">Wind</p>
                         <p id="wind"></p>
                     </div>
                     <div class="col feels-like">
-                      <p>Feels like</p>
+                      <p class="title">Feels like</p>
                       <p id="feels-like"></p>
                     </div>
                   </div>

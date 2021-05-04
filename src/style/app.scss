@@ -22,8 +22,22 @@ body {
     margin: 0 auto;
     border-radius: 30px;
     text-align: center;
+    font-weight: bold;
+    color: white;
 
-    .city {
+    #meteo-response {
+        margin-top: 100px;
+
+        .title {
+            font-size: 20px;
+        }
+
+        .coord #lat{
+            margin-bottom: 0;
+        }
+    }
+
+    #city {
         text-align: center;
         margin-top: 50px;
     }
