@@ -71,7 +71,7 @@ function getUserInput(): void {
 
         //one-way-binding
         let userInputDiv = document.getElementById("user-input")as HTMLInputElement;
-        let bind = new Binding(userInputDiv, this.callback);
+        let bind = new Binding(userInputDiv, );
         console.log(bind);
 
     } else {
