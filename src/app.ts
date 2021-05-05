@@ -1,4 +1,6 @@
+import { Callbacks } from "jquery";
 import {Binding} from "./utils/binding";
+declare const document: any;
 
 interface Patient {
     "patientID": string,
@@ -69,7 +71,7 @@ function getUserInput(): void {
 
         //one-way-binding
         let userInputDiv = document.getElementById("user-input")as HTMLInputElement;
-        let bind = new Binding();
+        let bind = new Binding(userInputDiv, this.callback);
         console.log(bind);
 
     } else {
@@ -176,7 +178,7 @@ function getMeteo(e:string):void {
       xhttp.send();
 }
 
-function getBrowserMeteo(position: string[]):void {
+function getBrowserMeteo(position: GeolocationPosition):void {
     debugger;
     let lat: number = position.coords.latitude;
     let lon: number = position.coords.longitude;
