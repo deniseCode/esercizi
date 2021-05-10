@@ -1,0 +1,26 @@
+<div class="container-sm p-0">
+  <div id="bottom">
+    <div class="row pt-3">
+      <div class="col">
+        <img class="icon" src="">
+        <p id="weather">{{this.weatherData?.weather[0].main}}</p>
+      </div>
+      <div class="col">
+        <p id="temp-max" class="fs-3">{{this.weatherData?.main.temp_max}}</p>
+        <p id="temp-min" class="fs-3">{{this.weatherData?.main.temp_min}}</p>
+      </div>
+      <div class="col">
+        <img src="../../../assets/images/water.svg" alt="water">
+        <p id="humidity">Humidity</p>
+        <br>
+        <p>{{this.weatherData?.main.humidity}}</p>
+      </div>
+      <div class="col">
+        <img src="../../../assets/images/wind.svg" alt="wind">
+        <p id="wind">Wind</p>
+        <br>
+        <p>{{this.weatherData?.wind.speed}}</p>
+      </div>
+    </div>
+  </div>
+</div>

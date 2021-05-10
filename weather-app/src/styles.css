@@ -1,2 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  background-image: url(./assets/images/background.jpg);
+  background-size: cover;
+}
+
+.container-sm #bottom {
+  background-color: white;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.col-md-8 {
+  padding: 0;
+}
