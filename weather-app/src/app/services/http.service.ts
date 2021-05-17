@@ -14,7 +14,7 @@ export class HTTPRequest {
   LoadCurrentWeather(position: GeolocationPosition): Observable<ResponseWeather> {
     let lat: number = position.coords.latitude;
     let lon: number = position.coords.longitude;
-    return this.http.get<ResponseWeather>("http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=a61e4cf1d203d6e7a118af89108ac797");
+    return this.http.get<ResponseWeather>("http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&units=metric&appid=a61e4cf1d203d6e7a118af89108ac797");
   }
 
 }

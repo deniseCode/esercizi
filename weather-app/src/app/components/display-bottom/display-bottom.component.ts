@@ -1,4 +1,3 @@
-import { I18nContext } from '@angular/compiler/src/render3/view/i18n/context';
 import { Component } from '@angular/core';
 import { HTTPRequest } from '../../services/http.service';
 import { ResponseWeather } from '../../models/weatherresponse.model';

@@ -4,6 +4,7 @@
 body {
   background-image: url(./assets/images/background.jpg);
   background-size: cover;
+  vertical-align: middle !important;
 }
 
 .container-sm #bottom {
@@ -12,6 +13,15 @@ body {
   border-bottom-left-radius: 15px;
 }
 
-.col-md-8 {
-  padding: 0;
+.col-md-6 {
+  margin: 0 auto;
+  border: 10px solid rgb(58, 58, 58);
+  border-radius: 20px;
+}
+
+.vertical-center {
+  min-height: 100%;  
+  min-height: 100vh; 
+  display: flex;
+  align-items: center;
 }

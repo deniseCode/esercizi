@@ -1,14 +1,13 @@
 <div class="container-sm p-5">
   <div id="top">
     <div class="row">
-      <div class="col">
-        <h5 class="card-title">Put clock</h5>
-        <p class="card-text">calendar</p>
+      <div class="col fs-2">
+          <clock></clock>
       </div>
       <div class="col city">
-        <h5 id="city" class="card-title">{{this.weatherData?.name}}</h5>
-        <p id="lat">Latitude: {{this.weatherData?.coord.lat}}</p>
-        <p id="lon">Longitude: {{this.weatherData?.coord.lon}}</p>
+        <p id="city" class="card-title fs-2 mb-3">{{this.weatherData?.name}}
+          <span id="lat" class="fs-6 fw-light mb-0">{{this.weatherData?.sys.country}}</span>
+        </p>
       </div>
     </div>
   </div>
