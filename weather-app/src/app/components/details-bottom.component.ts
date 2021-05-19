@@ -1,34 +1,38 @@
 import { Component, Input } from '@angular/core';
-import { Details } from '../models/details-weather.model';
-import { HTTPRequest } from '../services/http.service';
 import { ResponseWeather } from '../models/weatherresponse.model';
 
 @Component({
   selector: 'details-bottom',
   template: `
-	<div *ngFor="let detail of details">
-		<div class="col">
-			<img src="{{detail.icon}}">
-			<p id="title" class="fs-6 fw-light">{{detail.label}}</p>
-			<p>{{detail.desc}}</p>
-		</div>
+	<div *ngFor="let detail of details" class="col">
+		<img src="{{detail.icon}}">
+		<p id="title" class="fs-6 fw-light">{{detail.label}}</p>
+		<p>{{detail.desc}}</p>
 	</div>	
 `
 })
 
 
 export class DetailsBottomComponent {
+	
+	private _weather: ResponseWeather;
 
-	details : Details[] = [
+	get weather(): ResponseWeather { return this._weather; }
+	@Input() set weatherData(newweather : ResponseWeather) {
+	  this._weather = (newweather);
+	  this.details = [
 		{ 
-			label: "Feels like", icon: "../../../assets/images/temperature.svg", desc: "{{weatherData.main.feels_like}}°" 
+			label: "Feels like", icon: "../../../assets/images/temperature.svg", desc: newweather.main.feels_like 
 		},
 		{ 
-			label: "Humidity", icon: "../../../assets/images/water.svg", desc: "{{weatherData.main.humidity}}" 
+			label: "Humidity", icon: "../../../assets/images/water.svg", desc: newweather.main.humidity 
 		},
 		{ 
-			label: "Wind", icon: "../../../assets/images/wind.svg", desc: "{{weatherData.wind.speed}} km/h" 
+			label: "Wind", icon: "../../../assets/images/wind.svg", desc: newweather.wind.speed
 		}
 	]
+	}
+	
+	public details: {label: string, icon: string, desc: number}[];
 	
 }

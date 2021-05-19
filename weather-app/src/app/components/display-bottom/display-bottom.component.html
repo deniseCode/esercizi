@@ -10,10 +10,10 @@
           <p id="temp-min" class="fs-4">{{this.weatherData?.main.temp_min}}°</p>
       </div>
       
-      <!--
-       <details-bottom></details-bottom>
-      -->
-        
+      <details-bottom [weatherData]="weatherData"
+      class="col"></details-bottom>
+     
+        <!--
       <div class="col">
         <img src="../../../assets/images/temperature.svg">
         <p id="humidity" class="fs-6 fw-light">Feels like</p>
@@ -29,7 +29,7 @@
         <p id="wind" class="fs-6 fw-light">Wind</p>
         <p>{{this.weatherData?.wind.speed}} km/h</p>
       </div>
-      
+       -->
     </div>
   </div>
 </div>
