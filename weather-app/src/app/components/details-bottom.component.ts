@@ -4,11 +4,13 @@ import { ResponseWeather } from '../models/weatherresponse.model';
 @Component({
   selector: 'details-bottom',
   template: `
-	<div *ngFor="let detail of details" class="col">
-		<img src="{{detail.icon}}">
-		<p id="title" class="fs-6 fw-light">{{detail.label}}</p>
-		<p>{{detail.desc}}</p>
-	</div>	
+	<div class="row">
+		<div *ngFor="let detail of details" class="col">
+			<img src="{{detail.icon}}">
+			<p id="title" class="fs-6 fw-light">{{detail.label}}</p>
+			<p>{{detail.desc}}</p>
+		</div>	
+	</div>
 `
 })
 

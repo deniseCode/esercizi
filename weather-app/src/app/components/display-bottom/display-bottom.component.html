@@ -1,35 +1,20 @@
 <div class="container-sm p-0">
   <div id="bottom">
     <div class="row pt-3 pb-3">
-      <div class="col" *ngIf="this.weatherData">
-        <img class="icon" src="http://api.openweathermap.org/img/w/{{this.weatherData.weather[0].icon}}.png">
-        <p id="weather" class="fs-4">{{this.weatherData?.weather[0].main}}</p>
-      </div>
       <div class="col">
-          <p id="temp-max" class="fs-4">{{this.weatherData?.main.temp_max}}°</p>
-          <p id="temp-min" class="fs-4">{{this.weatherData?.main.temp_min}}°</p>
+        <div class="row">
+          <div class="col-sm-4" *ngIf="this.weatherData">
+            <img class="icon" src="http://api.openweathermap.org/img/w/{{this.weatherData.weather[0].icon}}.png">
+            <p id="weather" class="fs-4">{{this.weatherData?.weather[0].main}}</p>
+          </div>
+          <div class="col-sm-4">
+              <p id="temp-max" class="fs-4">{{this.weatherData?.main.temp_max}}°</p>
+              <p id="temp-min" class="fs-4">{{this.weatherData?.main.temp_min}}°</p>
+          </div>
+        </div>
       </div>
-      
       <details-bottom [weatherData]="weatherData"
       class="col"></details-bottom>
-     
-        <!--
-      <div class="col">
-        <img src="../../../assets/images/temperature.svg">
-        <p id="humidity" class="fs-6 fw-light">Feels like</p>
-        <p>{{this.weatherData?.main.feels_like}}°</p>
-      </div>
-      <div class="col">
-        <img src="../../../assets/images/water.svg">
-        <p id="humidity" class="fs-6 fw-light">Humidity</p>
-        <p>{{this.weatherData?.main.humidity}}</p>
-      </div>
-      <div class="col">
-        <img src="../../../assets/images/wind.svg">
-        <p id="wind" class="fs-6 fw-light">Wind</p>
-        <p>{{this.weatherData?.wind.speed}} km/h</p>
-      </div>
-       -->
     </div>
   </div>
 </div>

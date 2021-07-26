@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { HTTPRequest } from '../../services/http.service';
 import { ResponseWeather } from '../../models/weatherresponse.model';
 
@@ -12,6 +12,7 @@ import { ResponseWeather } from '../../models/weatherresponse.model';
 })
 
 export class DisplayTopComponent {
+  @Input() cityWeatherData: ResponseWeather;
   public weatherData: ResponseWeather;
 
   constructor(public httpRequest: HTTPRequest) {
@@ -24,7 +25,8 @@ export class DisplayTopComponent {
           });
         });
     }
-
   }
+
+
 
 }

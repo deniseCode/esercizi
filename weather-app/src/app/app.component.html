@@ -1,9 +1,13 @@
 <div class="container-fluid  vertical-center" style="height: 100vh;">
   <div class="col-md-6">
     <router-outlet></router-outlet>
-    <app-display-top></app-display-top>
-    <app-display-bottom></app-display-bottom>
+    <div *ngIf="emptyInput">
+      <app-display-top></app-display-top>
+      <app-display-bottom></app-display-bottom>
+    </div>
+    <search-bar></search-bar>
   </div>
 </div>
 
 
+ 
