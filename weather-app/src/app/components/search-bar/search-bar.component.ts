@@ -20,23 +20,22 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   </form> 
   `,
   styles:[`
-    #search-bar { margin: 0 auto;}
+    #search-bar { margin: 0 auto; }
   `]
 })
 export class SearchBarComponent {
   form : FormGroup;
   citySearch : string;
   public cityWeatherData: ResponseWeather;
-  @Input() emptyInput;
 
   constructor(public httpRequest: HTTPRequest) {}
    
   onSubmit = (templateForm) => {
     this.httpRequest.SearchCityWeather(this.citySearch).subscribe((response)=>{
       this.cityWeatherData = response;
-      console.log(response);
+      console.log(this.cityWeatherData);
     });
-    this.emptyInput = false;
+
   }
 
 }

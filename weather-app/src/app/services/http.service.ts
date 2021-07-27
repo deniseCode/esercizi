@@ -19,7 +19,7 @@ export class HTTPRequest {
 
   SearchCityWeather(citySearch): Observable<ResponseWeather> {
     let city : string = citySearch;
-    return this.http.get<ResponseWeather>("http://api.openweathermap.org/data/2.5/weather?q={"+city+"}&units=metric&appid=a61e4cf1d203d6e7a118af89108ac797");
+    return this.http.get<ResponseWeather>("http://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid=a61e4cf1d203d6e7a118af89108ac797");
   }
 
 }
